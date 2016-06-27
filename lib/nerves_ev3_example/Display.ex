@@ -1,11 +1,11 @@
 defmodule NervesEv3Example.Display do
   use GenServer
 
-  def start_link([]) do
-    GenServer.start_link(__MODULE__, [])
+  def start_link(args, options \\ []) do
+    GenServer.start_link(__MODULE__, args, options)
   end
 
-  def init([]) do
+  def init(_) do
     ExNcurses.initscr()
     :timer.send_interval(1000, :refresh)
     {:ok, 0}

@@ -24,12 +24,11 @@ defmodule NervesEv3Example do
 
   defp load_ev3_modules() do
     System.cmd("modprobe", ["suart_emu"])
+
+    # Port 1 may be disabled -> see rootfs-additions/etc/modprobe.d
     System.cmd("modprobe", ["legoev3_ports"])
     System.cmd("modprobe", ["snd_legoev3"])
     System.cmd("modprobe", ["legoev3_battery"])
-
-    # I'm currently using a Ralink RT53xx WiFi dongle
-    System.cmd("modprobe", ["rt2800usb"])
   end
 
   defp start_wifi() do
@@ -40,7 +39,7 @@ defmodule NervesEv3Example do
   defp redirect_logging() do
     Logger.add_backend {LoggerFileBackend, :error}
     Logger.configure_backend {LoggerFileBackend, :error},
-      path: "/root/system.log",
+      path: "/mnt/system.log",
       level: :info
   end
 
@@ -52,15 +51,16 @@ defmodule NervesEv3Example do
   end
 
   defp maybe_mount_appdata() do
-    if !File.exists?("/root/.initialized") do
+    if !File.exists?("/mnt/.initialized") do
+      # Ignore errors
       mount_appdata()
-    else
-      :ok
+      File.write("/mnt/.initialized", "Done!")
     end
+    :ok
   end
 
   defp mount_appdata() do
-    case System.cmd("mount", ["-t", "ext4", "/dev/mmcblk0p3", "/root"]) do
+    case System.cmd("mount", ["-t", "ext4", "/dev/mmcblk0p3", "/mnt"]) do
       {_, 0} -> :ok
       _ -> :error
     end
