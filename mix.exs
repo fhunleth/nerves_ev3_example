@@ -13,7 +13,7 @@ defmodule NervesEv3Example.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps() ++ system()]
   end
 
   # Configuration for the OTP application.
@@ -26,14 +26,15 @@ defmodule NervesEv3Example.Mixfile do
 
   def deps do
     [{:nerves, "~> 0.3.0"},
-     {:nerves_system_ev3, github: "nerves-project/nerves_system_ev3", branch: "pre"},
-     {:nerves_system, github: "nerves-project/nerves_system", branch: "master", override: true},
-     {:nerves_toolchain, github: "nerves-project/nerves_toolchain", branch: "master", override: true},
      {:erlware_commons, "~> 0.21", override: true},
      {:logger_file_backend, "~> 0.0.8"},
      {:nerves_interim_wifi, "~> 0.0.1"},
      {:ex_ncurses, github: "fhunleth/ex_ncurses", branch: "bump_deps"},
     ]
+  end
+
+  def system() do
+    [{:nerves_system_ev3, github: "nerves-project/nerves_system_ev3", branch: "pre"}]
   end
 
   def aliases do
