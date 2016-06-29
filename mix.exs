@@ -26,7 +26,6 @@ defmodule NervesEv3Example.Mixfile do
 
   def deps do
     [{:nerves, "~> 0.3.0"},
-     {:erlware_commons, "~> 0.21", override: true},
      {:logger_file_backend, "~> 0.0.8"},
      {:nerves_interim_wifi, "~> 0.0.1"},
      {:ex_ncurses, github: "fhunleth/ex_ncurses", branch: "bump_deps"},
