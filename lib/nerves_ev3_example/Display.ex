@@ -1,8 +1,8 @@
 defmodule NervesEv3Example.Display do
   use GenServer
 
-  def start_link(args, options \\ []) do
-    GenServer.start_link(__MODULE__, args, options)
+  def start_link(opts \\ []) do
+    GenServer.start_link(__MODULE__, [], opts)
   end
 
   def init(_) do
@@ -13,6 +13,6 @@ defmodule NervesEv3Example.Display do
 
   def handle_info(:refresh, state) do
     ExNcurses.mvprintw(3, 1, "Hello #{state}")
-    {:noreply@n, state}
+    {:noreply, state}
   end
 end
