@@ -13,6 +13,6 @@ defmodule NervesEv3Example.Display do
 
   def handle_info(:refresh, state) do
     ExNcurses.mvprintw(3, 1, "Hello #{state}")
-    {:noreply, state}
+    {:noreply, state + 1}
   end
 end
