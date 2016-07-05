@@ -15,6 +15,6 @@ config :nerves_interim_wifi,
 
 # Change these options to your
 config :nerves_ev3_example, :wlan0,
-  ssid: "hunleth",
+  ssid: "my_access_point",
   key_mgmt: :"WPA-PSK",
-  psk: "ahqwlhvjgxsltfmy"
+  psk: "secretsecret"
