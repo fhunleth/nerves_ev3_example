@@ -41,6 +41,10 @@ defmodule NervesEv3Example do
     Logger.configure_backend {LoggerFileBackend, :error},
       path: "/mnt/system.log",
       level: :info
+    Logger.remove_backend :console
+
+    # Turn off kernel logging to the console
+    System.cmd("dmesg", ["-n", "1"])
   end
 
   defp format_appdata() do
@@ -52,17 +56,19 @@ defmodule NervesEv3Example do
 
   defp maybe_mount_appdata() do
     if !File.exists?("/mnt/.initialized") do
-      # Ignore errors
       mount_appdata()
-      File.write("/mnt/.initialized", "Done!")
+    else
+      :ok
     end
-    :ok
   end
 
   defp mount_appdata() do
     case System.cmd("mount", ["-t", "ext4", "/dev/mmcblk0p3", "/mnt"]) do
-      {_, 0} -> :ok
-      _ -> :error
+      {_, 0} ->
+          File.write("/mnt/.initialized", "Done!")
+          :ok
+      _ ->
+          :error
     end
   end
 
