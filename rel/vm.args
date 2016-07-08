@@ -1,4 +1,7 @@
-## Start the Elixir shell
 -noshell
--user Elixir.IEx.CLI
+# Comment this next line to get an iex prompt
+#-user Elixir.IEx.CLI
+# Comment this next line in to suppress the console
+-noinput +Bd
 -extra --no-halt
+
