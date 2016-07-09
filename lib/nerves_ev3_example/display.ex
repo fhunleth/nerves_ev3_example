@@ -22,6 +22,7 @@ defmodule NervesEv3Example.Display do
     N.mvprintw(2, 1, "Hello #{state}")
 
     N.mvprintw(3, 1, "IP: #{ipaddr()}")
+    N.mvprintw(4, 1, "Node: #{node()}")
     N.refresh()
     {:noreply, state + 1}
   end
