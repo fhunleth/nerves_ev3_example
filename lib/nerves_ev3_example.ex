@@ -23,6 +23,8 @@ defmodule NervesEv3Example do
   end
 
   defp load_ev3_modules() do
+    System.cmd("/sbin/udevd", ["--daemon"])
+
     System.cmd("modprobe", ["suart_emu"])
 
     # Port 1 may be disabled -> see rootfs-additions/etc/modprobe.d
