@@ -24,6 +24,7 @@ defmodule NervesEv3Example.Display do
     N.mvprintw(3, 1, "IP: #{ipaddr()}")
     N.mvprintw(4, 1, "Node: #{node()}")
     N.mvprintw(5, 1, "Battery: #{battery_voltage()}V")
+    N.mvprintw(6, 1, "Memory: #{meminfo()}")
     N.refresh()
     {:noreply, state + 1}
   end
@@ -43,5 +44,17 @@ defmodule NervesEv3Example.Display do
       _ ->
         0
     end
+  end
+
+  def meminfo() do
+    {free_info, 0} = System.cmd("free", [])
+    mem_line = free_info
+      |> String.split("\n")  # split into lines
+      |> Enum.at(1)          # the "Mem:" line is the second one
+      |> String.split(" ")   # split out the fields
+      |> Enum.filter(&(&1 != ""))
+    {total, _} = Enum.at(mem_line, 1) |> Integer.parse
+    {free, _}  = Enum.at(mem_line, 3) |> Integer.parse
+    "#{free} KB free / #{total} KB"
   end
 end
