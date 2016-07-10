@@ -1,0 +1,8 @@
+# See http://lechnology.com/2014/09/using-uart-sensors-on-any-linux/
+
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="0403", ENV{ID_MODEL_ID}=="6001", \
+        ENV{ID_SERIAL_SHORT}=="A603UZPK", ACTION=="add", \
+            RUN+="/usr/sbin/ev3uartattach start $name"
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="0403", ENV{ID_MODEL_ID}=="6001", \
+        ENV{ID_SERIAL_SHORT}=="A603UZPK", ACTION=="remove", \
+            RUN+="/usr/sbin/ev3uartattach.sh stop $name"

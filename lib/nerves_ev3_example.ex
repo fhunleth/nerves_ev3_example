@@ -32,6 +32,7 @@ defmodule NervesEv3Example do
     System.cmd("modprobe", ["legoev3_ports"])
     System.cmd("modprobe", ["snd_legoev3"])
     System.cmd("modprobe", ["legoev3_battery"])
+    System.cmd("modprobe", ["ev3_uart_sensor_ld"])
   end
 
   defp start_wifi() do
@@ -47,7 +48,7 @@ defmodule NervesEv3Example do
     Logger.remove_backend :console
 
     # Turn off kernel logging to the console
-    System.cmd("dmesg", ["-n", "1"])
+    #System.cmd("dmesg", ["-n", "1"])
   end
 
   defp format_appdata() do
