@@ -24,6 +24,7 @@ defmodule NervesEv3Example do
 
   defp load_ev3_modules() do
     System.cmd("/sbin/udevd", ["--daemon"])
+    Process.sleep(1000)  # I do not like this line
 
     System.cmd("modprobe", ["suart_emu"])
 
