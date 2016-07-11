@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ $# == 2 ]; then
     dev_node="/dev/"$2
