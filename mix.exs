@@ -7,7 +7,7 @@ defmodule NervesEv3Example.Mixfile do
     [app: :nerves_ev3_example,
      version: "0.0.1",
      system: @system,
-     archives: [nerves_bootstrap: "0.1.3"],
+     archives: [nerves_bootstrap: "0.1.4"],
      deps_path: "deps/#{@system}",
      build_path: "_build/#{@system}",
      build_embedded: Mix.env == :prod,
