@@ -33,7 +33,7 @@ defmodule NervesEv3Example.Mixfile do
   end
 
   def system() do
-    [{:nerves_system_ev3, github: "nerves-project/nerves_system_ev3", branch: "pre"}]
+    [{:nerves_system_ev3, "~> 0.7.0"}]
   end
 
   def aliases do
