@@ -31,7 +31,7 @@ defmodule NervesEv3Example.Mixfile do
   end
 
   def system do
-    [{:nerves_system_ev3, "~> 0.10.0", runtime: false}]
+    [{:nerves_system_ev3, "~> 0.10.1", runtime: false}]
   end
 
   def aliases do
