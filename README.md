@@ -18,3 +18,16 @@ Here are the steps:
      ev3@nerves-129d` to connect. If your router doesn't supply local DNS,
      you'll need to add `nerves-129d` to your `/etc/hosts`.
 
+Once you connect, you'll want to do stuff with Lego sensors and motors that you
+may have attached to your EV3. The docs for doing this can be found on the
+[ev3dev](http://www.ev3dev.org) website and pretty much just need to be
+translated from shell commands (you could use `:os.cmd` if you want) to Elixir
+[File](https://hexdocs.pm/elixir/File.html) calls. For example, if you have a
+motor, see the [tacho-motor](http://www.ev3dev.org/docs/tutorials/tacho-motors/)
+instructions.
+
+If you have a console adapter and want to do some debugging with this project,
+you'll need to do two things. The first is to switch the TTY to `ttyS1` in
+`config/rootfs-additions/etc/erlinit.config`. The second is to comment out the
+`NervesEv3Example.Display` worker so that it doesn't start in
+`lib/nerves_ev3_example.ex`.
