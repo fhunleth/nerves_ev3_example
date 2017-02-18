@@ -23,6 +23,9 @@ defmodule NervesEv3Example do
   end
 
   defp load_ev3_modules() do
+    wifi_driver = Application.get_env(:nerves_ev3_example, :wifi_driver)
+    System.cmd("modprobe", [wifi_driver])
+
     System.cmd("/sbin/udevd", ["--daemon"])
     Process.sleep(1000)  # I do not like this line
 
