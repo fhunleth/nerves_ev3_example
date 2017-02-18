@@ -1,4 +1,4 @@
-%{"distillery": {:hex, :distillery, "1.1.0", "e9943bd29557e9c252a051d8ac4b47e597cd9bf2a74332b8628eab4954eb51d7", [:mix], []},
+%{"distillery": {:hex, :distillery, "1.1.2", "4cf32ecc70ca7eecca9e52e111edf320bd78011050825863cd8bc7ffee686c5d", [:mix], []},
   "elixir_make": {:hex, :elixir_make, "0.4.0", "992f38fabe705bb45821a728f20914c554b276838433349d4f2341f7a687cddf", [:mix], []},
   "ex_ncurses": {:git, "https://github.com/jfreeze/ex_ncurses.git", "2fd3ecb1c8a1c5e04ddb496bb8d57f30b619f59e", [ref: "2fd3ecb1c8a1c5e04ddb496bb8d57f30b619f59e"]},
   "logger_file_backend": {:hex, :logger_file_backend, "0.0.9", "5c2f7d4a28431e695cdf94d191523dbafe609321a67bb654254897f546c393db", [:mix], []},
