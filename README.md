@@ -7,7 +7,7 @@ Having a console adapter will come in handy.
 
 Here are the steps:
 
-  1. Edit `config/config.exs` and add your access point
+  1. Edit `config/config.exs` and add your access point and wifi driver
   2. `mix deps.get`
   3. `mix firmware`
   4. Connect a MicroSD card to your computer.
