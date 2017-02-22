@@ -15,7 +15,8 @@ Here are the steps:
   6. Put the MicroSD card in the EV3 and power off the EV3
   7. Watch the display. It should eventually show an IP address.
   8. On your computer, run `iex --cookie democookie --sname me --remsh
-     ev3@nerves-129d` to connect. If your router doesn't supply local DNS,
+     ev3@nerves-129d` to connect (replace the `129d` part with your ev3's
+     id. It will be on the display). If your router doesn't supply local DNS,
      you'll need to add `nerves-129d` to your `/etc/hosts`.
 
 Once you connect, you'll want to do stuff with Lego sensors and motors that you
