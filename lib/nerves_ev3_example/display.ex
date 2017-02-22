@@ -19,6 +19,7 @@ defmodule NervesEv3Example.Display do
   end
 
   def handle_info(:refresh, state) do
+    N.clear()
     N.mvprintw(2, 1, "Hello #{state}")
 
     N.mvprintw(3, 1, "IP: #{ipaddr()}")
