@@ -11,6 +11,9 @@ defmodule NervesEv3Example do
     start_writable_fs()
     start_wifi()
 
+    # This won't get annoying...
+    spawn fn -> System.cmd("espeak", ["Good morning!"]) end
+
     # Define workers and child supervisors to be supervised
     children = [
       worker(NervesEv3Example.Display, []),
@@ -36,6 +39,9 @@ defmodule NervesEv3Example do
     System.cmd("modprobe", ["snd_legoev3"])
     System.cmd("modprobe", ["legoev3_battery"])
     System.cmd("modprobe", ["ev3_uart_sensor_ld"])
+
+    # Initialize ALSA so that you can use espeak and aplay
+    System.cmd("alsactl", ["restore"])
   end
 
   defp start_wifi() do
