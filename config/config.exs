@@ -21,9 +21,8 @@ config :nerves_ev3_example, :wlan0,
 
 # Change this to your WiFi module's driver name.
 # Examples are:
+#    "mt7601u" for a MediaTek MT7601u (Tenda WM311MI)
 #    "rt2800usb" for Ralink RT53xx-based modules
-#    "r8712u" for a RealTek RTL8712U
-#    "r8188eu" for a RealTek RTL8188EU
 #
 # An easy way to figure out which driver is needed for
 # your WiFi module is to do the following:
@@ -39,4 +38,5 @@ config :nerves_ev3_example, :wlan0,
 # need to build a custom Nerves system image with the
 # correct driver module enabled.
 config :nerves_ev3_example,
-  wifi_driver: "rt2800usb"
+  wifi_driver: "mt7601u"
+  #wifi_driver: "rt2800usb"
